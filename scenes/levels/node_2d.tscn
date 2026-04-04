@@ -18,7 +18,9 @@ scale = Vector2(2, 2)
 script = ExtResource("3_vtrwo")
 follow_object = NodePath("../Player")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=222768753]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=514096579]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=222768753]
 z_index = -999
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_ca3nq")

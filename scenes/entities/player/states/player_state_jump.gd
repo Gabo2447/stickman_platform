@@ -8,12 +8,10 @@ func on_physics_process(delta: float) -> void:
 	var direction = Input.get_axis("left", "right")
 
 	player.velocity.y += handle_gravity(delta)
-	player.velocity.x = handle_movement_horizontal(direction)
-
-	if player.velocity.x != 0:
-		player.sprite.flip_h = is_flip_sprite(player.velocity.x)
+	player.velocity.x = handle_movement_horizontal(direction, delta)
 	
-	if player.velocity.y < 0:
+	if player.velocity.y > 0:
 		state_machine.change_to(STATE_FALL)
 	
+	update_sprite_direction(direction)
 	player.move_and_slide()

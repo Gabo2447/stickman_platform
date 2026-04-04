@@ -21,8 +21,31 @@ var ANIM_RUN: String = "run"
 func handle_gravity(delta: float) -> float:
 	return stats.gravity * delta
 
-func handle_movement_horizontal(direction: float) -> float:
-	return direction * stats.speed
+func handle_movement_horizontal(direction: float, delta) -> float:
+	var target_velocity = direction * stats.speed
 
-func is_flip_sprite(velocity: float) -> bool:
-	return velocity < 0
+	if direction != 0:
+		return move_toward(player.velocity.x, target_velocity, stats.acceleration * delta)
+	else:
+		return move_toward(player.velocity.x, 0, stats.acceleration * delta)
+
+func update_sprite_direction(direction: float) -> void:
+	if direction != 0:
+		player.sprite.flip_h = direction < 0
+
+func update_coyote_timer(delta: float) -> void:
+	if player.coyote_timer > 0:
+		player.coyote_timer -= delta
+
+func update_buffer_timer(delta: float) -> void:
+	if player.jump_buffer_timer > 0:
+		player.jump_buffer_timer -= delta
+
+func clear_timers() -> void:
+	player.jump_buffer_timer = 0
+	player.coyote_timer = 0
+
+# --- FUNCIONES GENERALES ---
+func on_input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		player.jump_buffer_timer = player.JUMP_BUFFER_DURATION

@@ -6,26 +6,24 @@ func start() -> void:
 
 func on_physics_process(delta: float) -> void:
 	var direction = Input.get_axis("left", "right")
-	player.velocity.x = handle_movement_horizontal(direction)
-	
-	if player.coyote_timer > 0:
-		player.coyote_timer -= delta
+	player.velocity.x = handle_movement_horizontal(direction, delta)
 
-	if direction != 0.0:
-		player.sprite.flip_h = is_flip_sprite(player.velocity.x)
+	update_buffer_timer(delta)
+	update_coyote_timer(delta)
+	
+	if player.jump_buffer_timer > 0 and player.coyote_timer > 0:
+		clear_timers()
+		state_machine.change_to(STATE_JUMP)
+		return
 	
 	player.velocity.y += handle_gravity(delta)
 
 	if player.is_on_floor():
 		state_machine.change_to(STATE_IDLE)
 
+	update_sprite_direction(direction)
 	player.move_and_slide()
 
-func on_input(event: InputEvent):
-	if event.is_action_pressed("jump"):
-		if player.coyote_timer > 0:
-			player.coyote_timer = 0
-			state_machine.change_to(STATE_JUMP)
-	
+func on_input(_event: InputEvent):
 	pass
 	# TODO: proximamente para el dash
