@@ -15,3 +15,5 @@ func on_physics_process(delta: float) -> void:
 	
 	if player.velocity.y < 0:
 		state_machine.change_to(STATE_FALL)
+	
+	player.move_and_slide()
