@@ -5,9 +5,9 @@ func start() -> void:
 
 func on_physics_process(delta: float) -> void:
 	var direction = Input.get_axis("left", "right")
+	player.velocity.x = handle_movement_horizontal(direction)
 
 	if direction != 0.0:
-		player.velocity.x = handle_movement_horizontal(direction)
 		player.sprite.flip_h = is_flip_sprite(player.velocity.x)
 	
 	player.velocity.y += handle_gravity(delta)
