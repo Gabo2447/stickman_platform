@@ -28,6 +28,8 @@ func on_physics_process(delta: float) -> void:
 		player.velocity.y += handle_gravity(delta)
 		state_machine.change_to(STATE_FALL)
 		return
+	else:
+		player.coyote_timer = player.COYOTE_DURATION
 	
 	if abs(direction) >= 0.01: # No se si esta bien, los ternarios son dificiles para mi
 		state_machine.change_to(STATE_RUN)
