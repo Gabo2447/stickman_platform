@@ -4,7 +4,7 @@ func start() -> void:
 	player.animation_player.play(ANIM_JUMP)
 	player.velocity.y = stats.jump_force
 
-func _physics_process(delta: float) -> void:
+func on_physics_process(delta: float) -> void:
 	var direction = Input.get_axis("left", "right")
 
 	player.velocity.y += handle_gravity(delta)

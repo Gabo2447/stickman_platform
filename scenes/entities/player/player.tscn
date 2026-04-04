@@ -12,7 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_bjvvg"]
 script = ExtResource("2_nh4ur")
-jump_force = -300.0
+jump_force = -800.0
 metadata/_custom_type_script = "uid://dlnvhqns7a4kf"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nh4ur"]
@@ -431,12 +431,11 @@ _data = {
 &"wait": SubResource("Animation_ovg4i")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=620113964 node_paths=PackedStringArray("animation_player", "sprite", "timer")]
+[node name="Player" type="CharacterBody2D" unique_id=620113964 node_paths=PackedStringArray("animation_player", "sprite")]
 script = ExtResource("1_58kc7")
 stats = SubResource("Resource_bjvvg")
 animation_player = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite")
-timer = NodePath("Contador")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1570578058]
 texture = ExtResource("1_635qg")

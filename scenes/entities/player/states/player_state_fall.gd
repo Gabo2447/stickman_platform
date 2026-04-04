@@ -3,7 +3,7 @@ extends PlayerStateBase
 func start() -> void:
 	player.animation_player.play(ANIM_FALL)
 
-func _physics_process(delta: float) -> void:
+func on_physics_process(delta: float) -> void:
 	var direction = Input.get_axis("left", "right")
 
 	if direction != 0.0:

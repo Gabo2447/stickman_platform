@@ -1,4 +1,5 @@
 extends PlayerStateBase
 
 func start() -> void:
-	print(ANIM_RUN)
+	player.animation_player.play(ANIM_RUN)
+	print(STATE_RUN)
