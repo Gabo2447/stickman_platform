@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cfn6frq67vlgw" path="res://scenes/levels/test.tscn" id="1_babg3"]
 [ext_resource type="PackedScene" uid="uid://bstomkleyctm1" path="res://scenes/entities/player/player.tscn" id="2_ca3nq"]
-[ext_resource type="Texture2D" uid="uid://r6g0w3ips7n4" path="res://assets/backgrounds/Background.png" id="3_ca3nq"]
 [ext_resource type="Script" uid="uid://cgvpkpoknldw8" path="res://common/camera/camera.gd" id="3_vtrwo"]
+[ext_resource type="PackedScene" uid="uid://cius8qf8i0hgf" path="res://ui/background/background.tscn" id="4_vtrwo"]
 
 [node name="Node2D" type="Node2D" unique_id=2024072575]
 
@@ -18,9 +18,5 @@ scale = Vector2(2, 2)
 script = ExtResource("3_vtrwo")
 follow_object = NodePath("../Player")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=514096579]
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=222768753]
-z_index = -999
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_ca3nq")
+[node name="Background" parent="." unique_id=2066331084 node_paths=PackedStringArray("camera") instance=ExtResource("4_vtrwo")]
+camera = NodePath("../Camera2D")

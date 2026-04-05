@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_instance_valid(follow_object):
 		# print(true) (Si funciona)
-		global_position = follow_object.global_position
+		global_position.x = follow_object.global_position.x
 		# global_position = global_position.lerp(follow_object.global_position, lerp_speed * delta)
 
 # --- SIGNAL HANDLERS ---
