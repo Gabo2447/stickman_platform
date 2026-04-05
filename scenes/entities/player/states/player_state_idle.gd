@@ -18,9 +18,7 @@ func _ready() -> void:
 # --- AUXILIARES ---
 func start() -> void:
 	player.animation_player.play(ANIM_IDLE)
-	player.coyote_timer = player.COYOTE_DURATION
 	idle_timer.start()
-
 	print(STATE_IDLE)
 
 func end() -> void:
@@ -28,10 +26,12 @@ func end() -> void:
 
 # --- PHYSICS PROCESS ---
 func on_physics_process(delta: float) -> void:
-	var direction = Input.get_axis("left", "right")
-	player.velocity.x = handle_movement_horizontal(direction, delta)
-	
-	update_buffer_timer(delta)
+	var direction = get_input_direction()
+	player.velocity.x = handle_movement_horizontal(player.velocity.x, direction, delta)
+	player.coyote_timer = player.COYOTE_DURATION
+
+	handle_jump_input()
+	update_timer(delta)
 
 	if player.jump_buffer_timer > 0:
 		clear_timers()

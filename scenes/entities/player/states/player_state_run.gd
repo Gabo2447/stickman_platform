@@ -5,10 +5,12 @@ func start() -> void:
 	print(STATE_RUN)
 
 func on_physics_process(delta: float) -> void:
-	var direction = Input.get_axis("left", "right")
-	player.velocity.x = handle_movement_horizontal(direction, delta)
+	var direction = get_input_direction()
+	player.velocity.x = handle_movement_horizontal(player.velocity.x, direction, delta)
 	
-	update_buffer_timer(delta)
+	player.coyote_timer = player.COYOTE_DURATION
+	update_timer(delta)
+	handle_jump_input()
 
 	if player.jump_buffer_timer > 0:
 		clear_timers()

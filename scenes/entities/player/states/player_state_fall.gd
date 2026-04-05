@@ -5,22 +5,25 @@ func start() -> void:
 	print(STATE_FALL)
 
 func on_physics_process(delta: float) -> void:
-	var direction = Input.get_axis("left", "right")
-	player.velocity.x = handle_movement_horizontal(direction, delta)
-
-	update_buffer_timer(delta)
-	update_coyote_timer(delta)
+	var direction = get_input_direction()
+	handle_jump_input()
+	update_timer(delta)
 	
-	if player.jump_buffer_timer > 0 and player.coyote_timer > 0:
+	if player.jump_buffer_timer > 0 and (player.is_on_floor() or player.coyote_timer > 0):
 		clear_timers()
 		state_machine.change_to(STATE_JUMP)
 		return
 	
+	player.velocity.x = handle_movement_horizontal(player.velocity.x, direction, delta)
 	player.velocity.y += handle_gravity(delta)
 
 	if player.is_on_floor():
-		state_machine.change_to(STATE_IDLE)
-
+		if abs(direction) >= 0.01:
+			state_machine.change_to(STATE_RUN)
+		else:
+			state_machine.change_to(STATE_IDLE)
+		return
+	
 	update_sprite_direction(direction)
 	player.move_and_slide()
 
