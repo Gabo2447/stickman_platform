@@ -454,7 +454,7 @@ libraries/ = SubResource("AnimationLibrary_7wli1")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=597788803]
 z_index = -1
-position = Vector2(0, 15)
+position = Vector2(0, 17)
 texture = ExtResource("2_58kc7")
 
 [node name="State Machine" type="Node" parent="." unique_id=2112226852 node_paths=PackedStringArray("default_state")]
