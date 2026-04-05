@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cius8qf8i0hgf"]
 
 [ext_resource type="Texture2D" uid="uid://r6g0w3ips7n4" path="res://assets/backgrounds/Background.png" id="1_l32py"]
-[ext_resource type="Script" uid="uid://gdvocle3dc1j" path="res://ui/background/parallax.gd" id="1_wf0ub"]
+[ext_resource type="Script" uid="uid://gdvocle3dc1j" path="res://common/parallax/parallax.gd" id="1_wf0ub"]
 
 [node name="Background" type="Node2D" unique_id=1602105451]
 
