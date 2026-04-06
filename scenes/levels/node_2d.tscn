@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bstomkleyctm1" path="res://scenes/entities/player/player.tscn" id="2_ca3nq"]
 [ext_resource type="Script" uid="uid://cgvpkpoknldw8" path="res://common/camera/camera.gd" id="3_vtrwo"]
 [ext_resource type="PackedScene" uid="uid://cius8qf8i0hgf" path="res://ui/background/background.tscn" id="4_vtrwo"]
+[ext_resource type="PackedScene" uid="uid://3c18uadubogj" path="res://scenes/entities/collectibles/coin/coin.tscn" id="5_yg3ru"]
+[ext_resource type="PackedScene" uid="uid://b876gvlxxwjt6" path="res://ui/user interface/interface_ui.tscn" id="6_ccpaa"]
 
 [node name="Node2D" type="Node2D" unique_id=2024072575]
 
@@ -18,5 +20,44 @@ scale = Vector2(2, 2)
 script = ExtResource("3_vtrwo")
 follow_object = NodePath("../Player")
 
-[node name="Background" parent="." unique_id=2066331084 node_paths=PackedStringArray("camera") instance=ExtResource("4_vtrwo")]
-camera = NodePath("../Camera2D")
+[node name="Background" parent="." unique_id=2066331084 instance=ExtResource("4_vtrwo")]
+
+[node name="Collectibles" type="Node" parent="." unique_id=1900681868]
+
+[node name="Collectible" parent="Collectibles" unique_id=1271290289 instance=ExtResource("5_yg3ru")]
+position = Vector2(352, -96)
+
+[node name="Collectible2" parent="Collectibles" unique_id=54146601 instance=ExtResource("5_yg3ru")]
+position = Vector2(480, -96)
+
+[node name="Collectible3" parent="Collectibles" unique_id=1178277113 instance=ExtResource("5_yg3ru")]
+position = Vector2(544, -96)
+
+[node name="Collectible4" parent="Collectibles" unique_id=1674241270 instance=ExtResource("5_yg3ru")]
+position = Vector2(416, -96)
+
+[node name="Collectible5" parent="Collectibles" unique_id=1986142467 instance=ExtResource("5_yg3ru")]
+position = Vector2(352, -160)
+
+[node name="Collectible6" parent="Collectibles" unique_id=1979722016 instance=ExtResource("5_yg3ru")]
+position = Vector2(480, -160)
+
+[node name="Collectible7" parent="Collectibles" unique_id=1114933562 instance=ExtResource("5_yg3ru")]
+position = Vector2(544, -160)
+
+[node name="Collectible8" parent="Collectibles" unique_id=1890647712 instance=ExtResource("5_yg3ru")]
+position = Vector2(416, -160)
+
+[node name="Collectible9" parent="Collectibles" unique_id=1119546117 instance=ExtResource("5_yg3ru")]
+position = Vector2(928, -224)
+
+[node name="Collectible10" parent="Collectibles" unique_id=210407284 instance=ExtResource("5_yg3ru")]
+position = Vector2(928, -160)
+
+[node name="Collectible11" parent="Collectibles" unique_id=692863479 instance=ExtResource("5_yg3ru")]
+position = Vector2(864, -160)
+
+[node name="Collectible12" parent="Collectibles" unique_id=775804963 instance=ExtResource("5_yg3ru")]
+position = Vector2(864, -224)
+
+[node name="InterfaceUI" parent="." unique_id=597594298 instance=ExtResource("6_ccpaa")]

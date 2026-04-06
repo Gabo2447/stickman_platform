@@ -4,6 +4,7 @@ extends Camera2D
 @export var lerp_speed: float = 10.0
 
 func _ready() -> void:
+	GameController.player_death.connect(_on_player_death)
 	process_callback = Camera2D.CAMERA2D_PROCESS_PHYSICS
 	limit_bottom = 128
 	

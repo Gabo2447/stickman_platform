@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b876gvlxxwjt6"]
+
+[ext_resource type="Script" uid="uid://dih6mu4wxphui" path="res://ui/user interface/interface_ui.gd" id="1_jp340"]
+[ext_resource type="Texture2D" uid="uid://0sge3bxe5nm8" path="res://assets/collectibles/static_items.png" id="2_y8ude"]
+[ext_resource type="FontFile" uid="uid://cxa3x7r58fc4n" path="res://assets/fonts/m5x7.ttf" id="3_crupu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp340"]
+font_size = 64
+
+[node name="InterfaceUI" type="CanvasLayer" unique_id=597594298 node_paths=PackedStringArray("coins_label")]
+script = ExtResource("1_jp340")
+coins_label = NodePath("Container/MarginContainer/HBoxContainer/Label")
+
+[node name="Container" type="Control" parent="." unique_id=341207153]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=674345100]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer" unique_id=1243124978]
+layout_mode = 2
+
+[node name="TextureRect" type="Sprite2D" parent="Container/MarginContainer/HBoxContainer" unique_id=153392249]
+scale = Vector2(2, 2)
+texture = ExtResource("2_y8ude")
+centered = false
+region_enabled = true
+region_rect = Rect2(4, 4, 24, 24)
+
+[node name="Control" type="Control" parent="Container/MarginContainer/HBoxContainer" unique_id=1112902672]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/MarginContainer/HBoxContainer" unique_id=131745612]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_crupu")
+theme_override_font_sizes/font_size = 64
+text = "99999"
+label_settings = SubResource("LabelSettings_jp340")
+horizontal_alignment = 3
