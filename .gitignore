@@ -33,3 +33,7 @@ $RECYCLE.BIN/
 # Linux
 *~
 .nfs
+
+# Aider
+.venv/
+.claude/
